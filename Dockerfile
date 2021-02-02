@@ -1,12 +1,15 @@
 FROM centos:centos7
 
+ARG PUID=2000
+ARG PGID=2000
+
 RUN yum -y install wget &&\
 	yum clean all -y
 
-RUN groupadd minio-client &&\
-    useradd -g minio-client minio-client
+RUN groupadd -g ${PGID} minio-client &&\
+    useradd -u ${PUID} -g minio-client minio-client
 
-USER minio-client
+USER 2000
 
 RUN cd /home/minio-client &&\
 	wget https://dl.minio.io/client/mc/release/linux-amd64/mc &&\
@@ -15,8 +18,6 @@ RUN cd /home/minio-client &&\
 COPY entrypoint.sh /home/minio-client/entrypoint.sh
 
 RUN chmod +x /home/minio-client/entrypoint.sh
-
-RUN chmod 777 -R /home/minio-client
 
 WORKDIR /home/minio-client
 
