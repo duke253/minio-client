@@ -12,4 +12,4 @@ echo $MINIO_BUCKET
 echo $MINIO_KEY
 echo $MINIO_SECRET
 
-exec /bin/bash -c '/home/minio-client/mc config host add minio $MINIO_URL $MINIO_KEY $MINIO_SECRET && /home/minio-client/mc ls minio/$MINIO_BUCKET'
+exec /bin/bash -c '/home/minio-client/mc config host add minio $MINIO_URL $MINIO_KEY $MINIO_SECRET && /home/minio-client/mc ls minio/$MINIO_BUCKET && /bin/bash -i'
