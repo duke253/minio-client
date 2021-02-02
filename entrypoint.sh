@@ -14,4 +14,5 @@ echo $MINIO_SECRET
 
 exec /home/minio-client/mc config host add minio $MINIO_URL $MINIO_KEY $MINIO_SECRET &&\
      /home/minio-client/mc ls minio/$MINIO_BUCKET &&\
-	 /bin/bash
+	 /bin/bash -i
+echo FIN!!!
