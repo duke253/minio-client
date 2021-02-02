@@ -16,6 +16,8 @@ COPY entrypoint.sh /home/minio-client/entrypoint.sh
 
 RUN chmod +x /home/minio-client/entrypoint.sh
 
+RUN chmod 777 -R /home/minio-client
+
 WORKDIR /home/minio-client
 
 ENTRYPOINT [ "/home/minio-client/entrypoint.sh" ]
