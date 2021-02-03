@@ -1,14 +1,13 @@
 FROM centos:centos7
 
 ARG PUID=2000
-ARG PGID=0
 
 RUN yum -y install wget &&\
 	yum -y install epel-release &&\
 	yum -y install nginx &&\
 	yum clean all -y
 
-RUN useradd -u ${PUID} -g minio-client minio-client
+RUN useradd -u ${PUID} -g root minio-client
 
 # support running as arbitrary user which belogs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  && chmod -R g+w /etc/nginx	
