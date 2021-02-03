@@ -4,6 +4,7 @@ ARG PUID=2000
 ARG PGID=2000
 
 RUN yum -y install wget &&\
+	yum -y install nc &&\
 	yum clean all -y
 
 RUN groupadd -g ${PGID} minio-client &&\
@@ -22,3 +23,5 @@ RUN chmod +x /home/minio-client/entrypoint.sh
 WORKDIR /home/minio-client
 
 ENTRYPOINT [ "/home/minio-client/entrypoint.sh" ]
+
+CMD ["nc","-l","7777"]
