@@ -9,6 +9,8 @@ RUN yum -y install wget &&\
 
 RUN useradd -u ${PUID} -g root minio-client
 
+RUN mkdir -p /var/cache/nginx
+
 # support running as arbitrary user which belogs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  && chmod -R g+w /etc/nginx	
 
