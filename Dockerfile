@@ -5,6 +5,8 @@ ARG PGID=2000
 
 RUN yum -y install wget &&\
 	yum -y install nc &&\
+	yum -y install epel-release &&\
+	yum -y install nginx &&\
 	yum clean all -y
 
 RUN groupadd -g ${PGID} minio-client &&\
