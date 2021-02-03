@@ -24,4 +24,4 @@ WORKDIR /home/minio-client
 
 ENTRYPOINT [ "/home/minio-client/entrypoint.sh" ]
 
-CMD ["nc","-l","-d","7777"]
+CMD ["nc","-d","-l","7777"]
