@@ -22,4 +22,6 @@ RUN chmod +x /home/minio-client/entrypoint.sh
 
 WORKDIR /home/minio-client
 
-CMD ["/bin/bash","/home/minio-client/entrypoint.sh"]
+ENTRYPOINT ["/home/minio-client/entrypoint.sh"]
+
+CMD ["nginx","-c","/etc/nginx/nginx.conf"]
