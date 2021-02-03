@@ -22,6 +22,4 @@ RUN chmod +x /home/minio-client/entrypoint.sh
 
 WORKDIR /home/minio-client
 
-ENTRYPOINT [ "/home/minio-client/entrypoint.sh" ]
-
-CMD ["nc","-d","-l","7777"]
+CMD ["/bin/bash","/home/minio-client/entrypoint.sh"]
