@@ -7,6 +7,10 @@ RUN yum -y install wget &&\
 	yum -y install nginx &&\
 	yum clean all -y
 
+RUN rm -rf /etc/nginx/nginx.conf
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
 RUN useradd -u ${PUID} -g root minio-client
 
 RUN mkdir -p /var/cache/nginx
