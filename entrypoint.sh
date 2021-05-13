@@ -2,7 +2,7 @@
 
 # Read environment variables or set default values
 echo -ne "Read environment variables..."
-MINIO_URL=${MINIO_URL:-http://130.193.58.121:9000}
+MINIO_URL=${MINIO_URL:-https://minio-s3.duke253.ru:9000}
 MINIO_BUCKET=${MINIO_BUCKET:-mm-data}
 MINIO_KEY=${MINIO_KEY:-AKIAIOSFODNN7EXAMPLE}
 MINIO_SECRET=${MINIO_SECRET:-AKIAIOSFODNN7EXAMPLE}
