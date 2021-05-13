@@ -17,3 +17,11 @@ deploy minio-client instance from template
 ```
 oc new-app --template=minio-client
 ```
+
+### Step 3
+use commands to test minio instance (use your own values for $MINIO_URL, 
+
+```
+./mc --insecure --config-dir /opt config host add minio $MINIO_URL $MINIO_KEY $MINIO_SECRET
+./mc --insecure --config-dir /opt ls minio/$_BUCKET
+```
