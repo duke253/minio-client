@@ -9,28 +9,25 @@ RUN rm -rf /etc/nginx/nginx.conf
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN useradd -g root minio-client
-
 RUN mkdir -p /var/cache/nginx
 
 # support running as arbitrary user which belogs to the root group
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  &&\
     chmod -R g+w /etc/nginx
 
-RUN cd /home/minio-client &&\
-	wget https://dl.minio.io/client/mc/release/linux-amd64/mc &&\
-	chmod +x /home/minio-client/mc
+RUN mkdir -p /opt/minio-client &&\
+	cd /opt/minio-client &&\
+	wget https://dl.minio.io/client/mc/release/linux-amd64/mc
 
-COPY entrypoint.sh /home/minio-client/entrypoint.sh
+COPY entrypoint.sh /opt/minio-client/entrypoint.sh
 
 RUN chmod +x /home/minio-client/entrypoint.sh
 
-RUN chgrp -R 0 /home/minio-client && \
-    chmod -R g=u /home/minio-client &&\
-	chmod -R g+rwx /home
+RUN chgrp -R 0 /opt/minio-client && \
+	chmod -R g+rwx /opt
 
 EXPOSE 9000
 
-WORKDIR /home/minio-client
+WORKDIR /opt/minio-client
 
-CMD ["/bin/bash","-c","/home/minio-client/entrypoint.sh"]
+CMD ["/bin/bash","-c","/opt/minio-client/entrypoint.sh"]
