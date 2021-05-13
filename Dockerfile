@@ -26,7 +26,8 @@ COPY entrypoint.sh /home/minio-client/entrypoint.sh
 RUN chmod +x /home/minio-client/entrypoint.sh
 
 RUN chgrp -R 0 /home/minio-client && \
-    chmod -R g=u /home/minio-client
+    chmod -R g=u /home/minio-client &&\
+	chmod -R g+w /home/minio-client
 
 EXPOSE 9000
 
