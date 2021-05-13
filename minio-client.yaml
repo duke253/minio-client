@@ -22,7 +22,7 @@ objects:
           name: minio-client
       spec:
         containers:
-        - image: quay.io/duke253/minio-client-centos7:1.3
+        - image: quay.io/duke253/minio-client-centos7:1.4
           imagePullPolicy: Always
           name: minio-client
           ports:
