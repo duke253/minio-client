@@ -25,7 +25,7 @@ RUN chmod +x /opt/minio-client/entrypoint.sh
 
 RUN chgrp -R 0 /opt/minio-client && \
 	chmod -R g+rwx /opt &&\
-	chmod g+rwx /
+	chmod g+w /
 
 EXPOSE 9000
 
