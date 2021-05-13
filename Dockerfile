@@ -14,9 +14,8 @@ RUN useradd -g root minio-client
 RUN mkdir -p /var/cache/nginx
 
 # support running as arbitrary user which belogs to the root group
-RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  && chmod -R g+w /etc/nginx	
-
-USER 2000
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  &&\
+    chmod -R g+w /etc/nginx
 
 RUN cd /home/minio-client &&\
 	wget https://dl.minio.io/client/mc/release/linux-amd64/mc &&\
