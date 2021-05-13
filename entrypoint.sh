@@ -12,4 +12,4 @@ echo $MINIO_BUCKET
 echo $MINIO_KEY
 echo $MINIO_SECRET
 
-exec /bin/bash -c "/home/minio-client/mc --insecure config host add minio $MINIO_URL $MINIO_KEY $MINIO_SECRET && /home/minio-client/mc --insecure ls minio/$MINIO_BUCKET && nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"
+exec /bin/bash -c "nginx -c /etc/nginx/nginx.conf -g 'daemon off;'"
