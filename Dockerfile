@@ -1,7 +1,5 @@
 FROM centos:centos7
 
-ARG PUID=2000
-
 RUN yum -y install wget &&\
 	yum -y install epel-release &&\
 	yum -y install nginx &&\
@@ -11,7 +9,7 @@ RUN rm -rf /etc/nginx/nginx.conf
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN useradd -u ${PUID} -g root minio-client
+RUN useradd -g root minio-client
 
 RUN mkdir -p /var/cache/nginx
 
