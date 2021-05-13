@@ -21,7 +21,7 @@ RUN mkdir -p /opt/minio-client &&\
 
 COPY entrypoint.sh /opt/minio-client/entrypoint.sh
 
-RUN chmod +x /home/minio-client/entrypoint.sh
+RUN chmod +x /opt/minio-client/entrypoint.sh
 
 RUN chgrp -R 0 /opt/minio-client && \
 	chmod -R g+rwx /opt
